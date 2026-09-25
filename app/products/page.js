@@ -8,4 +8,4 @@ export default function ProductsPage() {
       <ProductsPageContent />
     </Suspense>
   );
-}ss
+}
