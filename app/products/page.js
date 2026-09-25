@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Navbar from "@/components/Navbar";
 import SearchBar from "@/components/SearchBar";
-import Pagination from "@/components/Pagination";
+import Pagination from "@/components/pagination"
 import ProductTable from "@/components/ProductTable";
 import ProductCard from "@/components/ProductCard";
 import Loading from "@/components/Loading";
