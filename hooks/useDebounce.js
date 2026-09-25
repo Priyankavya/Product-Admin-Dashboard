@@ -1,24 +1,19 @@
-export function isLoggedIn() {
-  if (typeof window === "undefined") {
-    return false;
-  }
+"use client";
 
-  return Boolean(localStorage.getItem("accessToken"));
-}
+import { useEffect, useState } from "react";
 
-export function getCurrentUser() {
-  if (typeof window === "undefined") {
-    return null;
-  }
+export default function useDebounce(value, delay = 500) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
 
-  const user = localStorage.getItem("user");
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
 
-  return user ? JSON.parse(user) : null;
-}
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [value, delay]);
 
-export function logout() {
-  if (typeof window !== "undefined") {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("user");
-  }
+  return debouncedValue;
 }
